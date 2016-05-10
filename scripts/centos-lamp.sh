@@ -29,7 +29,7 @@ service mysqld start
 
 mysql -u root -e "SHOW DATABASES";
 
-# Download Starter Content
+# Download Starter Content.
 cd /vagrant
 sudo -u vagrant wget -q https://raw.githubusercontent.com/martsund/vagant2/master/files/index.html
 sudo -u vagrant wget -q https://raw.githubusercontent.com/martsund/vagant2/master/files/info.php
