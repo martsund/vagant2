@@ -22,14 +22,14 @@ yum install -y php php-cli php-common php-devel php-mysql
 
 "MySQL
 yum install -y mysql mysql-server mysql-devel
-chconfig --add mysqld
-chconfig mysqld on
+chkconfig --add mysqld
+chkconfig mysqld on
 
 service mysqld start
 
 mysql -u root -e "SHOW DATABASES";
 
-# Download Starter Content.
+# Download Starter Content
 cd /vagrant
 sudo -u vagrant wget -q https://raw.githubusercontent.com/martsund/vagant2/master/files/index.html
 sudo -u vagrant wget -q https://raw.githubusercontent.com/martsund/vagant2/master/files/info.php
