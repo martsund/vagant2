@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Update CentOS with any patches 
-yum update -y --excluede=kernel
+yum update -y --exclude=kernel
 
 # Tools
 yum install -y nano git unzip screen
 
 # Apache
-yum install -y httpd httpd-devel httld-tools
+yum install -y httpd httpd-devel httpd-tools
 chkconfig --add httpd
 chkconfig httpd on
 service httpd stop
