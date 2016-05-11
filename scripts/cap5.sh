@@ -4,7 +4,7 @@
 yum update -y --exclude=kernel
 
 # Tools
-apt-get install -y nano git unzip screen
+yum install -y nano git unzip screen
 
 # Apache
 yum install -y httpd httpd-devel httpd-tools
