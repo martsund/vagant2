@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Update CentOS with any patches 
-yum update -y --exclude=kernel
+apt-get update -y --exclude=kernel
 
 # Tools
-yum install -y nano git unzip screen
+apt-get install -y nano git unzip screen
 
 # Apache
-yum install -y httpd httpd-devel httpd-tools
+apt-get install -y httpd httpd-devel httpd-tools
 chkconfig --add httpd
 chkconfig httpd on
 service httpd stop
@@ -18,7 +18,7 @@ ln -s /vagrant /var/www/html
 service httpd start
 
 # PHP
-yum install -y php php-cli php-common php-devel php-mysql
+apt-get install -y php php-cli php-common php-devel php-mysql
 
 # Download Starter Content
 cd /vagrant
