@@ -1,11 +1,18 @@
 #!/bin/bash
 
-export DEBIAN_FRONTEND=noninteractive
-apt-get update
-apt-get install -y mysql-server
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mysql/my.cnf
-restart mysql
-mysql -uroot msql <<< "GRANT ALL ON *.* TO 'root'@'%'; FLUSH PRIVILEGES;"
+$script = <<SCRIPT
+    set -x
+    echo I am provisioning...
+    date > /etc/vagrant_provisioned_at
+    echo "hello world"
+    yum install mysql-server -y
+    /sbin/service mysqld start
+    mysql -e "create user 'mycooluser'@'%' identified by 'mypassword'"
 
+SCRIPT
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+  config.vm.box = "chef/centos-6.5"
+  config.vm.provision :shell, :inline => $script
 
+end
